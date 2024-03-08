@@ -6,11 +6,12 @@ import java.util.Random;
 
 public class EmployeeWegeComp {
 	public static void main(String args[]) {
-		
-		int attendance = 0;
+		int attendance ;
 		int dailyWage  = 0;
+		int employee_type ;
 		final int WAGE_PER_HR = 20;
-		final int FULL_DAY_HR = 8;
+		final int FULL_TIME_HR = 8;
+		final int PART_TIME_HR = 4;
 		System.out.println("Welcome To Employee Wage omputation program");
 	
 		Random random = new Random();
@@ -19,18 +20,39 @@ public class EmployeeWegeComp {
 	
 		
 		System.out.println("Random now:"+attendance);
-	if(attendance==0) {
 		
-		System.out.println("Employee Is Absent ");
+		switch(attendance) {
 		
-	}
+		case 0:
+			System.out.println("Employee is absent ");
+		
+		break;
+		
+		case 1:
+			System.out.println("Employee is present ");
+			
+			employee_type = random.nextInt(9) % 2 ;
+			
+			switch(employee_type) {
+			
+			case 0:
+				System.out.println("Employee is part time");
+				dailyWage  = WAGE_PER_HR *PART_TIME_HR;
+				
+				break;
+			case 1:
+				System.out.println("Employee is FULL time");
+				dailyWage  = WAGE_PER_HR *FULL_TIME_HR;
+				
+				break;
+				
+				
+			}
+			System.out.println("Employee Wage="+dailyWage);
+			break;
 	
-	else{
+		}
 		
-		System.out.println("Employee is present ");
-		dailyWage  = WAGE_PER_HR *FULL_DAY_HR;
-		System.out.println("Employee Wage="+dailyWage);
-	}
 
 }
 }
