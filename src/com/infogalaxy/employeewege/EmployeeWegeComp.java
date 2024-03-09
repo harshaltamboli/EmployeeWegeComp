@@ -9,6 +9,7 @@ public class EmployeeWegeComp {
 		int attendance ;
 		int dailyWage  = 0;
 		int employee_type ;
+		int total_wage =0;
 		final int WAGE_PER_HR = 20;
 		final int FULL_TIME_HR = 8;
 		final int PART_TIME_HR = 4;
@@ -41,16 +42,17 @@ public class EmployeeWegeComp {
 				case 0:
 					System.out.println("Employee is part time");
 					dailyWage  = WAGE_PER_HR *PART_TIME_HR;
-					
+				
 					break;
 				case 1:
 					System.out.println("Employee is FULL time");
 					dailyWage  = WAGE_PER_HR *FULL_TIME_HR;
-					
+
 					break;
 					
 					
 				}
+				total_wage = total_wage+ dailyWage ;
 				System.out.println("Employee Wage="+dailyWage);
 				break;
 		
@@ -58,6 +60,7 @@ public class EmployeeWegeComp {
 			
 			System.out.println("---------------------------------------------");
 		}
+		System.out.println("Employee Monthly Wage="+total_wage);
 	
 		}
 }
