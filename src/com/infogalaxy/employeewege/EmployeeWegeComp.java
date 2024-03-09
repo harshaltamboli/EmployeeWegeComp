@@ -9,6 +9,8 @@ public class EmployeeWegeComp {
 		int attendance ;
 		int dailyWage  = 0;
 		int employee_type ;
+		int total_working_hr = 0;
+		int total_working_days =1;
 		int total_wage =0;
 		final int WAGE_PER_HR = 20;
 		final int FULL_TIME_HR = 8;
@@ -16,8 +18,9 @@ public class EmployeeWegeComp {
 		final int WORKING_DAYS =20;
 		System.out.println("Welcome To Employee Wage omputation program");
 		
-		for(int i = 1; i <=WORKING_DAYS ; i++) {
-			System.out.println("Days="+i);
+		while(total_working_hr <= 100 && total_working_days <= 20) {
+			
+			System.out.println("Days="+total_working_days);
 			Random random = new Random();
 			attendance=random.nextInt(9)%2;
 			
@@ -41,13 +44,13 @@ public class EmployeeWegeComp {
 				
 				case 0:
 					System.out.println("Employee is part time");
-					dailyWage  = WAGE_PER_HR *PART_TIME_HR;
-				
+					dailyWage  = WAGE_PER_HR * PART_TIME_HR;
+					total_working_hr +=  PART_TIME_HR;
 					break;
 				case 1:
 					System.out.println("Employee is FULL time");
-					dailyWage  = WAGE_PER_HR *FULL_TIME_HR;
-
+					dailyWage  = WAGE_PER_HR * FULL_TIME_HR;
+					total_working_hr +=  FULL_TIME_HR;
 					break;
 					
 					
@@ -58,9 +61,13 @@ public class EmployeeWegeComp {
 		
 			}
 			
+			System.out.println("Total workin hr="+	total_working_hr);
 			System.out.println("---------------------------------------------");
+			
+			total_working_days++;
 		}
 		System.out.println("Employee Monthly Wage="+total_wage);
+		
 	
 		}
 }
